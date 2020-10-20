@@ -1,0 +1,41 @@
+---
+title: "intro-to-markdown"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r loadlibs, echo=FALSE}
+library(readr)
+```
+
+# Introduction
+
+* read in the data
+
+```{r loaddata, echo=FALSE, message=FALSE, warning=FALSE}
+bg_chem <- read_csv("BGchem2008data.csv")
+head(bg_chem)
+```
+
+# Analysis
+
+* calculate summary statistics
+
+```{r}
+mean_temp <- mean(bg_chem$CTD_Temperature)
+```
+
+The mean temperature was `r round(mean_temp, 2)`.
+
+* calculate mean Redfield ratio
+* plot Redfield ratio
+
+```{r}
+plot(bg_chem$CTD_Depth, bg_chem$CTD_Temperature)
+```
+
+
+
